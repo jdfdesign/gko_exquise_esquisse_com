@@ -1,0 +1,27 @@
+<% 
+  @portfolio ||= site.portfolio
+  @theme_categories = @portfolio.categories.with_globalize.find_by_name("themes")
+  @medium_categories = @portfolio.categories.with_globalize.find_by_name("mediums")
+%>
+  <% if @theme_categories.children.try(:any?) %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 open">
+        <a href="#" id="themes-dropdown" class="dropdown-toggle btn btn-primary btn-lg" data-toggle="dropdown" data-delay="1000" data-close-others="true">
+          <span class="link-label"><%= @theme_categories.title %></span>&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li><%= link_to(t(:"custom.view_all_themes"), "#", :class => "filter", :data => { :filter => "all" }) %></li>
+          <%= render :partial => "projects/category", 
+              :collection => @theme_categories.children, 
+              :as => :category %>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <p id="category-description"></p>
+      </div>
+    </div>
+  </div>
+  <% end %>

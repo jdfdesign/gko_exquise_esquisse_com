@@ -1,0 +1,129 @@
+.carousel {
+  .flex-video {
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 67.5%;
+    height: 0;
+    margin-bottom: 16px;
+    overflow: hidden;
+ 
+    &.widescreen { padding-bottom: 57.25%; }
+    &.vimeo { padding-top: 0; }
+ 
+    iframe,
+    object,
+    embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  @media (min-width: $grid-float-breakpoint) {
+    overflow: hidden;
+    z-index: 1;
+    margin: 8% 10%;
+  }
+  
+  @media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
+    .flex-video { padding-top: 0; }
+  }
+}
+.carousel-inner > .item > img, 
+.carousel-inner > .item > a > img {
+  max-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.animate-control {
+  position: absolute;
+  z-index: 3;
+  bottom: 5%;
+  width:  32px;
+  height: 32px;
+  border-radius: 31px;
+  border: 4px solid $carousel-indicator-border-color;
+  color: $carousel-indicator-border-color;
+  display: block;
+  left: 50%;
+  margin-left: -16px;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 26px;
+  overflow: hidden;
+  display: none;
+}
+.carousel-control {
+  bottom: 20px;
+  color: $carousel-indicator-border-color;
+  top: auto;
+  font-size: 30px;
+  display: none;
+  &.left {
+    left: 20px;
+    background-image: none;
+  }
+  &.right {
+    right: 20px;
+    background-image: none;
+  }
+}
+
+.no-touch {
+  .carousel-control {
+    display: block;
+  }
+}
+
+.carousel-indicators {
+  bottom: 20px;
+  li {
+    width:  22px;
+    height: 22px;
+    border-radius: 26px;
+    margin: 1px;
+    border: 4px solid $carousel-indicator-border-color;
+    // IE8-9 hack for event handling
+    //
+    // Internet Explorer 8-9 does not support clicks on elements without a set
+    // `background-color`. We cannot use `filter` since that's not viewed as a
+    // background color by the browser. Thus, a hack is needed.
+    //
+    // For IE8, we set solid black as it doesn't support `rgba()`. For IE9, we
+    // set alpha transparency for the best results possible.
+    background-color: #000 \9; // IE8
+    background-color: rgba(0,0,0,0); // IE9
+
+    span {
+      width:  20px;
+      height: 20px;
+      margin: 1px;
+      border-radius: 20px;
+      background-color: $carousel-indicator-border-color;
+      @include opacity(0);
+    }
+    
+    &:hover {
+      background-color: transparent;
+      border-color: $theme-color;
+      span {
+        background-color: $theme-color;
+        @include opacity(1);
+      }
+    }
+  }
+
+  .active {
+    width:  22px;
+    height: 22px;
+    border-radius: 26px;
+    margin: 1px;
+    background-color: $theme-color;
+    border-color: $theme-color;
+    span {
+      background-color: $theme-color;
+      @include opacity(1);
+    }
+  }
+}

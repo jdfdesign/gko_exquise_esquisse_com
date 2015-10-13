@@ -1,0 +1,30 @@
+<%# resource_cache(@project) do %>
+<% 
+  @categories ||= parent.categories.in_use
+  @categories ||= []
+%>
+  <article class="project" data-category="<%= @categories.map {|c| c.title.parameterize }.join(" ") %>">
+    <%= render "carousel", :images => @project.images %>
+    <div class="project-header">
+      <h1 class="project-title"><%= @project.title %></h1>
+      <div class="project-body"><%= raw(@project.body) %></div>
+      <div class="projects-nav">
+        <%# if @project.previous %>
+          <%#= link_to(@project.previous.public_url, :id => "previous-project", :class => "project-control left") do %>
+            <%#= raw "&larr; <span class='hidden-xs'>Projet</span><span class='hidden-xs'><br>précédent</span>" %>
+          <%# end %>
+        <%# end %>
+        <%# if @project.next %>
+          <%#= link_to(@project.next.public_url, :id => "next-project", :class => "project-control right") do %>
+            <%#= raw "<span class='hidden-xs'>Projet</span> &rarr;<span class='hidden-xs'><br>suivant</span>" %>
+          <%# end %>
+         <%# end %>
+      </div>
+    </div>
+    <div class="share-project">
+      <span class="share"><%= raw("#{t(:"custom.share")}:&nbsp;") %></span>
+      <span class="socials"><a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">Facebook</a>, <a href="https://twitter.com/share" data-lang="en" target="_blank">Twitter</a></span>
+    </div> 
+  </article>
+  
+<%# end %>

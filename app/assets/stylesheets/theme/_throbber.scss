@@ -1,0 +1,22 @@
+$throbber-size: 280px;
+.throbber_page {
+  display: none;
+  height: $throbber-size;
+  width: $throbber-size;
+  top: 50%;
+  left: 50%;
+  margin-top: -$throbber-size / 2;
+  margin-left: -$throbber-size / 2;
+  position: fixed;
+  z-index: $zindex-modal + 1;
+  svg path {
+    fill: $theme-color;
+    stroke: none
+  }
+}
+
+.thumbnail-throbber {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image:    url(data:image/svg+xml;base64,PHN2ZyBjbGFzcz0idGhyb2JiZXJfaW1hZ2UiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIj48cGF0aCBkPSJNIDE1MCwwIGEgMTUwLDE1MCAwIDAsMSAxMDYuMDY2LDI1Ni4wNjYgbCAtMzUuMzU1LC0zNS4zNTUgYSAtMTAwLC0xMDAgMCAwLDAgLTcwLjcxMSwtMTcwLjcxMSB6IiBmaWxsPSIjNDRDQkY4Ij48YW5pbWF0ZVRyYW5zZm9ybSBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iIGF0dHJpYnV0ZVR5cGU9IlhNTCIgdHlwZT0icm90YXRlIiBmcm9tPSIwIDE1MCAxNTAiIHRvPSIzNjAgMTUwIDE1MCIgYmVnaW49IjBzIiBkdXI9Ii41cyIgZmlsbD0iZnJlZXplIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgLz48L3BhdGg+PC9zdmc+)
+}

@@ -1,0 +1,20 @@
+<%# collection_row_cache(document_item) do %>
+	<li class="col-sm-8 col-sm-offset-2">
+    <%= link_to(document_item.document.url, :class => "thumbnail-document") do %>
+      <% if document_item.thumbnail.present? %>
+        <figure class="pull-left"><%= image_tag(document_item.thumbnail.url) %></figure>
+      <% else %>
+        <figure class="pull-left"><i class="fa fa-file-pdf-o fa-2x"></i></figure>
+      <% end %>
+          <%= document_item.title %>
+  			<%= render_record_description(document_item) if parent.use_description %>
+        <% if parent.use_publication_date and document_item.published_at.present? %>
+  				<span class='date'><%= l(document_item.published_at, :format => :long).html_safe %></span>
+        <% end %>
+        <% if parent.use_country and document_item.country.present? %>
+          <span class='country'><%= document_item.country %></span>
+        <% end %>
+        <span class="download"><small>Download</small><span class="caret"></span></span>
+    <% end %>
+  </li>
+<%# end if document_item %>

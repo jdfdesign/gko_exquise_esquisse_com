@@ -1,0 +1,27 @@
+<%# collection_cache(parent) do %> 
+<section class="page-header-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="page-header">
+          <% if @category %>
+            <%= render_page_title(@category.title) %>
+      	    <%= render_copy_text(@category.body) %>
+          <% else %>
+            <%= render_page_title(parent.title) %>
+    	      <%= render_copy_text(parent.body) %>
+          <% end %>
+    	  </div>
+      </div>
+    </div>
+  </div>    
+</section>
+<section class="projects-section">
+	<!-- Begin Projects -->
+	<div class="container">
+    <div class="row projects">
+      <%= render @projects %>
+    </div> 
+  </div>
+</section> 
+<%# end %>      

@@ -1,0 +1,17 @@
+<div class="page-header">
+  <%= render_page_title(parent.title) %>
+  <%= content_tag :p, :class => "lead" do %>
+    <% raw parent.body %>
+  <% end if parent.body.present? %>
+</div>
+<% if @document_items %>
+<div class="document_items">
+  <div class="container">
+    <div class="row">
+      <ul class="th-document_items">
+        <%= render @document_items %>
+      </ul>
+    </div>
+  </div>
+</div>
+<% end %>

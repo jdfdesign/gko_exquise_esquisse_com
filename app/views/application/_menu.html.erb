@@ -1,0 +1,22 @@
+<%# cache([ I18n.locale, site, site.home, 'primary_menu' ]) do %> 
+<nav id="primary-menu" class="primary-menu-container">
+  <ul class="nav nav-menu <%= menu_name if local_assigns.key?(:menu_name) %>">
+    <% site.primary_menu.each do |section| %>
+      <% if section %> 
+      <%
+        li_classes = []
+        li_classes << "active" if !section.is_a?(Redirect) and active_paths.include?(section.public_url)
+        li_classes << section.menu_css_class if section.menu_css_class.present?
+        li_classes = li_classes.join(" ")
+      %>
+      <li id="<%= dom_id(section) %>" class="<%= li_classes unless li_classes.blank? %>">
+        <%= menu_link(section) -%>
+      </li>
+      <% end %>
+    <% end %>
+    <li id="contact">
+      <%= mail_to "julie.gauthron@exquise-esquisse.com", "Contact", :encode => :javascript, :subject => "Contact exquiseesquisse.com" %>
+    </li>
+  </ul>
+</nav>
+<%# end %>

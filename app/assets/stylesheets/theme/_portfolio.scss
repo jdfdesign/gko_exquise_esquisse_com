@@ -1,0 +1,228 @@
+#projects-wrapper {
+  //z-index: -1;
+  //margin-top: 100%;
+  position: relative;
+  min-height: 100%;
+  margin-top: 68%;
+  border-top: 6px solid $theme-color;
+  background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAPklEQVQYV2O8FRP8n6G+lQEfYLx1+8Z/hsZqBnwKIYpAAI9ChCI8ClEV4VCIqQiLQuyK0BTiVoSkEL8iqEIAxnAu8i2MpHEAAAAASUVORK5CYII=');
+}
+
+.projects {
+  margin-top: $line-height-computed;
+}
+
+.thumbnail {
+  position: relative;
+  border: none;
+  margin-bottom: $line-height-computed;
+  cursor: pointer;
+  //overflow: hidden;
+  .caption {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    right: 5%;
+  }
+}
+.thumbnail-heading {
+  font-size: 16px;
+  text-transform: uppercase;
+  border-bottom: 6px solid $theme-color;
+  @media (max-width: $screen-xs-max) {
+    @include text-overflow();
+  }
+  
+  @media (min-width: $grid-float-breakpoint) {
+    font-size: 38px;
+  }
+}
+.thumbnail-img {
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  img {
+    @include opacity(1);
+  }
+}
+.thumbnail-vid {
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  iframe {
+    width: 100%;
+  }
+}
+#close-btn {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: -36px;
+}
+
+.no-touch {
+  .thumbnail {
+    .thumbnail-heading {
+      @include opacity(0);
+      @include transition(opacity 300ms ease-in);
+    }
+    .border {
+      position: absolute;
+      background-color: $theme-color;
+      &.border-top,
+      &.border-bottom {
+        width: 0;
+        height: 6px;
+        @include transition(width 300ms ease-in);
+      }
+      &.border-top {
+        top: 0;
+        left: 0;
+      }
+      &.border-bottom {
+        bottom: 0;
+        right: 0;
+      }
+      &.border-left,
+      &.border-right {
+        height: 0;
+        width: 6px;
+        @include transition(height 300ms ease-in);
+      }
+      &.border-left {
+        top: 0;
+        left: 0;
+      }
+      &.border-right {
+        bottom: 0;
+        right: 0;
+      }
+    }
+    
+    &.active,
+    &:hover {
+      .thumbnail-heading {
+        @include opacity(1);
+      }
+      .border-top,
+      .border-bottom {
+        width: 100%;
+      }
+      .border-left,
+      .border-right {
+        height: 100%;
+      }
+    }
+  }
+}
+/* PROJECT PAGE
+-------------------------------------------------- */
+
+#project-wrapper {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  overflow: hidden;
+  top: $navbar-height;
+  left: 0;
+  padding: 0;
+}
+
+#project-carousel {
+  overflow: hidden;
+  display: block;
+}
+
+.project-header {
+  border-bottom: 0;
+  color: $brand-primary;
+  @include center-block();
+  @media (min-width: $grid-float-breakpoint) {
+    position: absolute;
+    z-index: 3;
+    top: 15%;
+    right: 10px;
+    padding-right: 0;
+    padding-left: 0;
+    max-width: 300px;
+  }
+}
+
+.project-title {
+  text-transform: uppercase;
+  padding-left: 20px;
+  padding-right: 20px;
+  @media (min-width: $grid-float-breakpoint) {
+    border-bottom: 6px solid $theme-color;
+    max-width: 500px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.project-body {
+  color: $body-bg;
+  font-size: 16px;
+  background-color: rgba(218, 92, 83, .8);
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 500px;
+  @media (min-width: $grid-float-breakpoint) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.share-project {
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  @media (min-width: $grid-float-breakpoint) {
+    position: absolute;
+    z-index: 3;
+    top: 6%;
+    right: 15%;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+}
+
+.project-control {
+  font-size: 12px;
+  color: $brand-primary;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 8px;
+  span {
+    color: #fff;
+    background-color: $brand-primary;
+  }
+  &.right {
+    background-image: none;
+    @include reset-filter();
+    float: right;
+  }
+  &.left {
+    background-image: none;
+    @include reset-filter();
+    float: left;
+  }
+  &:hover,
+  &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+  
+  @media (min-width: $screen-sm-min) {
+    padding: 0;
+    &:hover,
+    &:focus {
+      span {
+        color: $brand-primary;
+        background-color: $body-bg;
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 intro">
+  <% if page_contact = site.sections.find_by_name("contact") %>
+    <h1><%= page_contact.title %></h1>
+    <%= render_copy_text(page_contact.body) %> 
+  <% end %>
+    </div> 
+    <div class="col-xs-12 col-sm-8">
+      <form id="contact-form" role="form" action="/inquiries" method="post" data-remote="true">
+    
+          <div class="col-xs-12 form-group">
+            <input type="text" name="inquiry[name]" id="name" value="" class="form-control requiredField" placeholder="Name">
+          </div>
+          <div class="col-xs-12 form-group">
+            <input type="text" name="inquiry[email]" id="email" value="" class="form-control requiredField email" placeholder="Email">
+          </div>
+          <div class="col-xs-12 form-group">
+            <textarea name="inquiry[message]" id="message" rows="20" cols="30" class="form-control requiredField" placeholder="Briefing"></textarea>
+          </div>
+          <div class="col-xs-12 form-group">
+            <input type="hidden" name="submitted" id="submitted" class="button" value="SEND"><button id="submit" class="btn btn-primary btn-block btn-big" type="submit"><%= t("gko.inquiry_submit") %></button>
+          </div>
+          <div class="col-xs-12 form-group">
+            <p id="error" data-alert="" class="alert"><%= t("gko.inquiry_error") %></p>
+            <p id="thanks" data-alert="" class="alert alert-success"><%= t("gko.inquiry_thanks") %></p>
+            <p id="timedout" data-alert="" class="alert"><%= t("gko.inquiry_connection_time_out") %></p>
+            <p id="state" data-alert="" class="alert"></p>
+          </div>
+       
+      </form>
+    </div>
+  </div> 
+</div>

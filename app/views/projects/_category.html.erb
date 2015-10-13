@@ -1,0 +1,3 @@
+<%= content_tag_for(:li, category) do %>
+  <%= link_to(category.title, "#", :class => "filter", :data => { :filter => "." + category.title.parameterize, :text => category.body }, :tabindex => "-1") %>
+<% end if category.categorizations.length > 0 %>

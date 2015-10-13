@@ -1,0 +1,58 @@
+<% if site.preferred_google_map_api_key.present? %>
+    <div id="map-canvas"></div>
+    <% marker = local_assigns.has_key?(:point) ? point : "17.905198,-62.827539" %> <%# sbh %>
+    <script type='text/javascript' src="http://maps.google.com/maps/api/js?key=<%= site.preferred_google_map_api_key %>&sensor=false"></script>
+    <%= javascript_tag do -%>
+		var map = null;
+
+		function initialize() {
+			var styles = [
+				{ stylers: [{ saturation: -100 }, { gamma: 1 }] },
+				{ elementType: "labels.text.stroke", stylers: [{ visibility: "off" }] },
+				{ featureType: "poi.business", elementType: "labels.text", stylers: [{ visibility: "off" }] },
+				{ featureType: "poi.business", elementType: "labels.icon", stylers: [{ visibility: "off" }] },
+				{ featureType: "poi.place_of_worship", elementType: "labels.text", stylers: [{ visibility: "off" }] },
+				{ featureType: "poi.place_of_worship", elementType: "labels.icon", stylers: [{ visibility: "off" }] },
+				{ featureType: "road", elementType: "geometry", stylers: [{ visibility: "simplified" }] },
+				{ featureType: "water", stylers: [{ visibility: "on" }, { saturation: 50 }, { gamma: 0 }, { hue: "#50a5d1" }] },
+				{ featureType: "administrative.neighborhood", elementType: "labels.text.fill", stylers: [{ color: "#333333" }] },
+				{ featureType: "road.local", elementType: "labels.text", stylers: [{ weight: 0.5 }, { color: "#333333" }] },
+				{ featureType: "transit.station", elementType: "labels.icon", stylers: [{ gamma: 1 }, { saturation: 50 }] }
+			];
+
+			var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
+
+			var myOptions = {
+				disableDefaultUI: true,
+				zoomControl: true,
+				streetViewControl: true,
+				zoomControlOptions: {
+					style: google.maps.ZoomControlStyle.SMALL,
+					position: google.maps.ControlPosition.LEFT_TOP
+				},
+				mapTypeControlOptions: {
+					mapTypeId: [google.maps.MapTypeId.ROADMAP, 'map_style']
+				},
+				zoom: 13,
+				center: new google.maps.LatLng(53.495654, -113.440321),
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				scrollwheel: false
+			}
+
+			map = new google.maps.Map(document.getElementById("map"), myOptions);
+			map.mapTypes.set('map_style', styledMap);
+			map.setMapTypeId('map_style');
+
+			var point = new google.maps.LatLng(53.492217, -113.440348);
+			var marker = new google.maps.Marker({
+		        position: point,
+		        map: map,
+		        icon: 'http://site3.boxclever.ca.webguidecms.ca/public/img/map_marker_big.png'
+		    });
+		}
+
+		$(document).ready(function(){
+			initialize();
+		});
+    <% end %>
+<% end %>

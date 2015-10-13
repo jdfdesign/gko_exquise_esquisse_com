@@ -1,0 +1,48 @@
+<%# cache ['homejulie', site, I18n.locale] do %>
+<% 
+  @portfolio ||= site.portfolio
+  @projects ||= site.projects.live
+  @project = @projects.shuffle.sample
+%>
+
+<% if @projects.any? %>
+  <button id="btn-categories" type="button" class="btn btn-primary">
+    <%= t("custom.view_all_themes") %>
+    <i class="icon ion-close-circled"></i>
+  </button>
+  <div id="categories-off-canvas">
+    <div class="list-categories-container">
+      <ul class="list-unstyled list-categories">
+        <% @projects.each do |project| %>
+          <li><%= link_to(project.title, "#", :class => "project-list-item #{project.title.parameterize}", :remote => true, :tabindex => "-1") %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<div id="project-wrapper">
+  <%= render "throbber" %>
+  <div id="project-container">
+    <article class="project">
+      <%= render "carousel", :images => @project.images %>
+      <div class="project-header">
+        <h1 class="project-title"><%= @project.title %></h1>
+        <p><%= @project.body.html_safe() %></p>
+      </div>
+      <div class="share-project">
+        <span class="share"><%= raw("#{t(:"custom.share")}:&nbsp;") %></span>
+        <span class="socials"><a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">Facebook</a>, <a href="https://twitter.com/share" data-lang="en" target="_blank">Twitter</a></span>
+      </div> 
+    </article>
+  </div>
+</div>
+
+<div id="projects-wrapper">
+  <div class="container">
+    <div class="row projects">
+      <%= render @projects, :as => :project %>
+    </div> 
+  </div>
+</div>
+<%# end %>
