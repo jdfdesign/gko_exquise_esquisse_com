@@ -1,19 +1,13 @@
-PATH
-  remote: ~/Github/gko_cms3/gko_auth
+GIT
+  remote: git@github.com:jdfdesign/gko_cms3.git
+  revision: c496b208720ba3151dae380977827bdedb2ea3e4
+  tag: v0.8.26
   specs:
-    gko_auth (0.8.27)
+    gko_auth (0.8.26)
       cancan (~> 1.6.10)
       devise (~> 2.2.3)
-
-PATH
-  remote: ~/Github/gko_cms3/gko_categories
-  specs:
-    gko_categories (0.8.27)
-
-PATH
-  remote: ~/Github/gko_cms3/gko_core
-  specs:
-    gko_core (0.8.27)
+    gko_categories (0.8.26)
+    gko_core (0.8.26)
       activesupport-slices (= 0.0.2)
       acts_as_indexed (~> 0.7.7)
       babosa (~> 0.3.8)
@@ -42,9 +36,9 @@ PATH
       mysql2 (~> 0.3.14)
       nested_set (~> 1.7.1)
       net-ssh (= 2.0.14)
-      rack-cache (= 1.2)
+      rack-cache (~> 1.2)
       rack-mount (~> 0.8.3)
-      rails (= 3.2.22)
+      rails (~> 3.2.22)
       rake (~> 10.1.1)
       rmagick
       routing-filter (= 0.3.1)
@@ -56,29 +50,13 @@ PATH
       uglifier (~> 2.4.0)
       uuid (~> 2.3.7)
       will_paginate (~> 3.0.2)
-
-PATH
-  remote: ~/Github/gko_cms3/gko_documents
-  specs:
-    gko_documents (0.8.27)
+    gko_documents (0.8.26)
       dragonfly (~> 0.9.8)
       rack-cache (>= 0.5.3)
-
-PATH
-  remote: ~/Github/gko_cms3/gko_inquiries
-  specs:
-    gko_inquiries (0.8.27)
+    gko_inquiries (0.8.26)
       filters_spam (~> 0.2)
-
-PATH
-  remote: ~/Github/gko_cms3/gko_portfolio
-  specs:
-    gko_portfolio (0.8.27)
-
-PATH
-  remote: ~/Github/gko_cms3/gko_stickers
-  specs:
-    gko_stickers (0.8.27)
+    gko_portfolio (0.8.26)
+    gko_stickers (0.8.26)
 
 GEM
   remote: https://rubygems.org/
