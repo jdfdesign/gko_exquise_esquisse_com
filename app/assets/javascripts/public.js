@@ -187,12 +187,12 @@ jQuery(function($) {
         try {
           FB.XFBML.parse();
         } catch (e) {
-          log("FB error");
+          console.log("FB error");
         }
       })
       .on("ajax:error", function(evt, xhr, status, error) {
         var flash = $.parseJSON(xhr.getResponseHeader('X-Flash-Messages'));
-        log("Site.error " + flash.error);
+        console.log("Site.error " + flash.error);
       });
 
     // Apply fix
