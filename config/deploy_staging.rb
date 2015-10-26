@@ -110,8 +110,8 @@ namespace :deploy do
     run "ln -nsf #{shared_path}/config/config.yml #{release_path}/config/config.yml"
     run "ln -nsf #{shared_path}/system #{release_path}/public/system"
     run "chmod 755 #{release_path}/public"
-    run "rm -rf /home2/#{user}/public_html/staging.juliegauthron.com"
-    run "ln -nsf #{release_path}/public /home/#{user}/public_html/staging.juliegauthron.com"
+    run "rm -rf /home2/#{user}/public_html/exquise-esquisse.com"
+    run "ln -nsf #{release_path}/public /home/#{user}/public_html/exquise-esquisse.com"
     
   end
 

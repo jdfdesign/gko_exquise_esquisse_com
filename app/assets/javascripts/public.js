@@ -1,7 +1,6 @@
 //= require jquery_ujs
 //= require jquery.placeholder
 //= require jquery.easing
-//= require jquery.mixitup
 //= require jquery.imagesloaded
 //= require jquery.touchSwipe
 
@@ -11,8 +10,7 @@ window.console || (console = {
 });
 
 window.THEME || (THEME = {
-  filterState: "all",
-  mode: "project"
+
 });
 
 jQuery(function($) {
@@ -105,26 +103,14 @@ jQuery(function($) {
 
   THEME.resizing = function() {
     var navbarHeight = $(".navbar").height(),
-        winHeight = $(window).outerHeight(),
         $carousel = $("#project-carousel"),
-        $project = $('#project-wrapper'),
-        $projects = $('#projects-wrapper'),
-        projectsTop = 0;
-    
-    $project.css({ 'top': navbarHeight });
+        $project = $('#project-wrapper');
+
+    $project.css({ 'margin-top': navbarHeight });
     
     if( $(window).outerWidth() > 768 ) {
       $carousel.css("max-height", Math.round(THEME.getScreenHeight() * 0.8) );
     }
-    
-    if(THEME.mode == "video") {
-      projectsTop = Math.round( $("#player").height() + navbarHeight );
-    }
-    else {
-      projectsTop = Math.round( $project.outerHeight(true) + navbarHeight );
-    }
-    
-    $projects.css({ 'margin-top': projectsTop, "min-height": THEME.getScreenHeight() });
   };
   
   /*==================================================
@@ -135,22 +121,11 @@ jQuery(function($) {
 
     var $projects = $(".projects");
 
-    $('a[data-filter]').on("click", function(e){
-      if($("body").hasClass('off-canvas-open')) {
-        $("body").removeClass('off-canvas-open');
-      }
-    })
-    
-    $("#btn-categories").on("click", function(e) {
-      $("body").toggleClass('off-canvas-open');
-    })
-
     $("a[data-remote]").on("ajax:beforeSend", function(evt, xhr, settings) {
       if ($(this).hasClass("active")) {
         return;
       };
 
-      
       $('.thumbnail').removeClass("active");
       $(this).addClass("active");
       $("#project-container").hide();
@@ -171,7 +146,6 @@ jQuery(function($) {
         }
         
         $container.html(eval(xhr));
-        THEME.mode = "project";
         THEME.placeholder();
         THEME.carousel();
         

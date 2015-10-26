@@ -3,7 +3,7 @@
   //margin-top: 100%;
   position: relative;
   min-height: 100%;
-  margin-top: 68%;
+  //margin-top: 68%;
   border-top: 6px solid $theme-color;
   background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAPklEQVQYV2O8FRP8n6G+lQEfYLx1+8Z/hsZqBnwKIYpAAI9ChCI8ClEV4VCIqQiLQuyK0BTiVoSkEL8iqEIAxnAu8i2MpHEAAAAASUVORK5CYII=');
 }
@@ -117,14 +117,18 @@
 }
 /* PROJECT PAGE
 -------------------------------------------------- */
+#project-container {
+  display: block;
+  width: 100%;
+}
+
+.project {
+  position: relative;
+}
 
 #project-wrapper {
-  position: fixed;
-  z-index: -1;
   width: 100%;
-  overflow: hidden;
-  top: $navbar-height;
-  left: 0;
+  margin-top: $navbar-height;
   padding: 0;
 }
 
@@ -138,13 +142,7 @@
   color: $brand-primary;
   @include center-block();
   @media (min-width: $grid-float-breakpoint) {
-    position: absolute;
-    z-index: 3;
-    top: 15%;
-    right: 10px;
-    padding-right: 0;
-    padding-left: 0;
-    max-width: 300px;
+    max-width: 500px;
   }
 }
 
@@ -177,15 +175,8 @@
   padding-right: 20px;
   padding-left: 20px;
   padding-bottom: 20px;
-  @media (min-width: $grid-float-breakpoint) {
-    position: absolute;
-    z-index: 3;
-    top: 6%;
-    right: 15%;
-    padding-right: 0;
-    padding-left: 0;
-    padding-bottom: 0;
-  }
+  @include center-block();
+  max-width: 500px;
 }
 
 .project-control {
