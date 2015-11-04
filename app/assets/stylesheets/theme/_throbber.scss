@@ -1,17 +1,26 @@
-$throbber-size: 280px;
+$throbber-size: 180px;
+$throbber-size-lg: 280px;
 .throbber_page {
   display: none;
   height: $throbber-size;
   width: $throbber-size;
-  top: 50%;
-  left: 50%;
   margin-top: -$throbber-size / 2;
   margin-left: -$throbber-size / 2;
+  top: 50%;
+  left: 50%;
+  
   position: fixed;
   z-index: $zindex-modal + 1;
   svg path {
     fill: $theme-color;
     stroke: none
+  }
+  
+  @media (min-width: $grid-float-breakpoint) {
+    height: $throbber-size-lg;
+    width: $throbber-size-lg;
+    margin-top: -$throbber-size-lg / 2;
+    margin-left: -$throbber-size-lg / 2;
   }
 }
 

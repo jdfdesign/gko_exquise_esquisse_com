@@ -10929,25 +10929,34 @@ button.close {
   content: "\f196";
 }
 
-/* line 2, ../../app/assets/stylesheets/theme/_throbber.scss */
+/* line 3, ../../app/assets/stylesheets/theme/_throbber.scss */
 .throbber_page {
   display: none;
-  height: 280px;
-  width: 280px;
+  height: 180px;
+  width: 180px;
+  margin-top: -90px;
+  margin-left: -90px;
   top: 50%;
   left: 50%;
-  margin-top: -140px;
-  margin-left: -140px;
   position: fixed;
   z-index: 1051;
 }
-/* line 12, ../../app/assets/stylesheets/theme/_throbber.scss */
+/* line 14, ../../app/assets/stylesheets/theme/_throbber.scss */
 .throbber_page svg path {
   fill: #da5c53;
   stroke: none;
 }
+@media (min-width: 768px) {
+  /* line 3, ../../app/assets/stylesheets/theme/_throbber.scss */
+  .throbber_page {
+    height: 280px;
+    width: 280px;
+    margin-top: -140px;
+    margin-left: -140px;
+  }
+}
 
-/* line 18, ../../app/assets/stylesheets/theme/_throbber.scss */
+/* line 27, ../../app/assets/stylesheets/theme/_throbber.scss */
 .thumbnail-throbber {
   background-position: center center;
   background-repeat: no-repeat;
@@ -10991,7 +11000,7 @@ button.close {
   }
 }
 
-/* line 33, ../../app/assets/stylesheets/theme/_navbar.scss */
+/* line 32, ../../app/assets/stylesheets/theme/_navbar.scss */
 #facebook {
   margin: 0;
   padding: 0;
@@ -11006,27 +11015,28 @@ button.close {
   line-height: 34px;
 }
 @media (min-width: 768px) {
-  /* line 33, ../../app/assets/stylesheets/theme/_navbar.scss */
+  /* line 32, ../../app/assets/stylesheets/theme/_navbar.scss */
   #facebook {
     top: 22px;
     bottom: 22px;
   }
 }
 
-/* line 51, ../../app/assets/stylesheets/theme/_navbar.scss */
+/* line 50, ../../app/assets/stylesheets/theme/_navbar.scss */
 .navbar-brand {
   padding: 8px 15px;
   height: auto;
-  width: 260px;
+  width: 200px;
   background-color: #da5c53;
   margin-top: 8px;
   margin-bottom: 8px;
   margin: 0;
 }
 @media (min-width: 768px) {
-  /* line 51, ../../app/assets/stylesheets/theme/_navbar.scss */
+  /* line 50, ../../app/assets/stylesheets/theme/_navbar.scss */
   .navbar-brand {
     padding: 16px 15px;
+    width: 260px;
   }
 }
 
@@ -11232,16 +11242,6 @@ span.valid {
 .carousel .flex-video.vimeo {
   padding-top: 0;
 }
-/* line 15, ../../app/assets/stylesheets/theme/_carousel.scss */
-.carousel .flex-video iframe,
-.carousel .flex-video object,
-.carousel .flex-video embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
 @media (min-width: 768px) {
   /* line 1, ../../app/assets/stylesheets/theme/_carousel.scss */
   .carousel {
@@ -11291,14 +11291,14 @@ span.valid {
   color: #da5c53;
   top: auto;
   font-size: 30px;
-  display: none;
+  margin-bottom: -30px;
 }
-/* line 63, ../../app/assets/stylesheets/theme/_carousel.scss */
+/* line 64, ../../app/assets/stylesheets/theme/_carousel.scss */
 .carousel-control.left {
   left: 20px;
   background-image: none;
 }
-/* line 67, ../../app/assets/stylesheets/theme/_carousel.scss */
+/* line 68, ../../app/assets/stylesheets/theme/_carousel.scss */
 .carousel-control.right {
   right: 20px;
   background-image: none;
@@ -11307,21 +11307,22 @@ span.valid {
   /* line 57, ../../app/assets/stylesheets/theme/_carousel.scss */
   .carousel-control {
     bottom: 20px;
+    margin-bottom: 0;
   }
 }
 
-/* line 78, ../../app/assets/stylesheets/theme/_carousel.scss */
+/* line 80, ../../app/assets/stylesheets/theme/_carousel.scss */
 .no-touch .carousel-control {
   display: block;
 }
 
-/* line 83, ../../app/assets/stylesheets/theme/_carousel.scss */
+/* line 85, ../../app/assets/stylesheets/theme/_carousel.scss */
 .carousel-indicators {
   bottom: 14px;
   width: 80%;
   margin-left: -40%;
 }
-/* line 87, ../../app/assets/stylesheets/theme/_carousel.scss */
+/* line 89, ../../app/assets/stylesheets/theme/_carousel.scss */
 .carousel-indicators li {
   width: 12px;
   height: 12px;
@@ -11332,7 +11333,7 @@ span.valid {
   background-color: #000 \9;
   background-color: rgba(0, 0, 0, 0);
 }
-/* line 105, ../../app/assets/stylesheets/theme/_carousel.scss */
+/* line 107, ../../app/assets/stylesheets/theme/_carousel.scss */
 .carousel-indicators li span {
   width: 100%;
   height: 100%;
@@ -11342,24 +11343,24 @@ span.valid {
   opacity: 0;
   filter: alpha(opacity=0);
 }
-/* line 114, ../../app/assets/stylesheets/theme/_carousel.scss */
+/* line 116, ../../app/assets/stylesheets/theme/_carousel.scss */
 .carousel-indicators li:hover {
   background-color: transparent;
   border-color: #da5c53;
 }
-/* line 117, ../../app/assets/stylesheets/theme/_carousel.scss */
+/* line 119, ../../app/assets/stylesheets/theme/_carousel.scss */
 .carousel-indicators li:hover span {
   background-color: #da5c53;
   opacity: 1;
   filter: alpha(opacity=100);
 }
 @media (min-width: 768px) {
-  /* line 87, ../../app/assets/stylesheets/theme/_carousel.scss */
+  /* line 89, ../../app/assets/stylesheets/theme/_carousel.scss */
   .carousel-indicators li {
     display: inline-block;
   }
 }
-/* line 128, ../../app/assets/stylesheets/theme/_carousel.scss */
+/* line 130, ../../app/assets/stylesheets/theme/_carousel.scss */
 .carousel-indicators .active {
   width: 12px;
   height: 12px;
@@ -11368,7 +11369,7 @@ span.valid {
   background-color: #da5c53;
   border-color: #da5c53;
 }
-/* line 135, ../../app/assets/stylesheets/theme/_carousel.scss */
+/* line 137, ../../app/assets/stylesheets/theme/_carousel.scss */
 .carousel-indicators .active span {
   background-color: #da5c53;
   opacity: 1;
@@ -11588,6 +11589,16 @@ span.valid {
   padding-right: 20px;
   max-width: 500px;
 }
+/* line 170, ../../app/assets/stylesheets/theme/_portfolio.scss */
+.project-body a {
+  text-decoration: none;
+  color: #fff;
+}
+/* line 174, ../../app/assets/stylesheets/theme/_portfolio.scss */
+.project-body a:hover, .project-body a:focus {
+  text-decoration: underline;
+  color: #fff;
+}
 @media (min-width: 768px) {
   /* line 162, ../../app/assets/stylesheets/theme/_portfolio.scss */
   .project-body {
@@ -11596,7 +11607,7 @@ span.valid {
   }
 }
 
-/* line 175, ../../app/assets/stylesheets/theme/_portfolio.scss */
+/* line 185, ../../app/assets/stylesheets/theme/_portfolio.scss */
 .share-project {
   padding-right: 20px;
   padding-left: 20px;
@@ -11607,7 +11618,7 @@ span.valid {
   max-width: 500px;
 }
 
-/* line 183, ../../app/assets/stylesheets/theme/_portfolio.scss */
+/* line 193, ../../app/assets/stylesheets/theme/_portfolio.scss */
 .project-control {
   font-size: 12px;
   color: #da5c53;
@@ -11616,34 +11627,34 @@ span.valid {
   text-transform: uppercase;
   padding: 8px;
 }
-/* line 190, ../../app/assets/stylesheets/theme/_portfolio.scss */
+/* line 200, ../../app/assets/stylesheets/theme/_portfolio.scss */
 .project-control span {
   color: #fff;
   background-color: #da5c53;
 }
-/* line 194, ../../app/assets/stylesheets/theme/_portfolio.scss */
+/* line 204, ../../app/assets/stylesheets/theme/_portfolio.scss */
 .project-control.right {
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   float: right;
 }
-/* line 199, ../../app/assets/stylesheets/theme/_portfolio.scss */
+/* line 209, ../../app/assets/stylesheets/theme/_portfolio.scss */
 .project-control.left {
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   float: left;
 }
-/* line 205, ../../app/assets/stylesheets/theme/_portfolio.scss */
+/* line 215, ../../app/assets/stylesheets/theme/_portfolio.scss */
 .project-control:hover, .project-control:focus {
   outline: none;
   text-decoration: none;
 }
 @media (min-width: 768px) {
-  /* line 183, ../../app/assets/stylesheets/theme/_portfolio.scss */
+  /* line 193, ../../app/assets/stylesheets/theme/_portfolio.scss */
   .project-control {
     padding: 0;
   }
-  /* line 214, ../../app/assets/stylesheets/theme/_portfolio.scss */
+  /* line 224, ../../app/assets/stylesheets/theme/_portfolio.scss */
   .project-control:hover span, .project-control:focus span {
     color: #da5c53;
     background-color: #dadbd8;

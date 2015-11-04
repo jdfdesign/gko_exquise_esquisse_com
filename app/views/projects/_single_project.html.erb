@@ -3,7 +3,10 @@
     <%= render "carousel", :images => @project.images %>
     <div class="project-header">
       <h1 class="project-title"><%= @project.title %></h1>
-      <div class="project-body"><%= raw(@project.body) %></div>
+      <div class="project-body">
+        <%= raw(@project.body) %>
+        <%= link_to("Visitez le site de l'hôtel", @project.website, :target => :blank) if @project.website %>
+      </div>
     </div>
     <div class="share-project">
       <span class="share"><%= raw("#{t(:"custom.share")}:&nbsp;") %></span>

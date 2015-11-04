@@ -166,6 +166,16 @@
   padding-left: 20px;
   padding-right: 20px;
   max-width: 500px;
+  
+  a {
+    text-decoration: none;
+    color: #fff;
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+      color: #fff;
+    }
+  }
   @media (min-width: $grid-float-breakpoint) {
     padding-left: 0;
     padding-right: 0;

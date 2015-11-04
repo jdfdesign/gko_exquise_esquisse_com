@@ -21,7 +21,6 @@
 }
 
 .navbar-nav {
-  
   @media (min-width: $grid-float-breakpoint) {
     margin-right: 70px;
     margin-top: ((($navbar-height-breakpoint - $line-height-computed) / 2) / 2);
@@ -51,12 +50,13 @@ $theFacebookHeight: 34px;
 .navbar-brand {
   padding: 8px 15px;
   height: auto;
-  width: 260px;
+  width: 200px;
   background-color: $brand-primary;
   @include navbar-vertical-align(34px);
   margin: 0;
   @media (min-width: $grid-float-breakpoint) {
     padding: 16px 15px;
+    width: 260px;
   }
 }
 

@@ -84,7 +84,7 @@ jQuery(function($) {
 				$(this).parent().carousel('prev'); 
 			},
 			//Default is 75px, set to 0 for demo so any distance triggers swipe
-			threshold:0
+			threshold: 10
 		});
     
   };
