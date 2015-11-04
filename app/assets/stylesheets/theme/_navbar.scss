@@ -49,44 +49,20 @@ $theFacebookHeight: 34px;
 }
 
 .navbar-brand {
-  padding: 0 15px;
+  padding: 8px 15px;
   height: auto;
+  width: 260px;
+  background-color: $brand-primary;
   @include navbar-vertical-align(34px);
+  margin: 0;
   @media (min-width: $grid-float-breakpoint) {
-    padding: 6px 15px;
+    padding: 16px 15px;
   }
 }
 
 .navbar-default .navbar-brand {
-  text-transform: uppercase;
-  span {
-    border-left: 4px solid $theme-color;
-    border-right: 4px solid $theme-color;
-    border-top: 4px solid $theme-color;
-    border-bottom: 4px solid $theme-color;
-    padding: 4px;
-    display: inline-block;
-    @include transition(all 0.3s ease-in-out);
-  }
-  span + span {
-    border-left: none;
-  }
-  &:hover {
-    span {
-      color: $body-bg;
-      background-color: $theme-color;
-    }
-  }
-  
-  @media (min-width: $grid-float-breakpoint) {
-    span {
-      border-bottom: none;
-    }
-    span + span {
-      display: block;
-      border-bottom: 4px solid $theme-color;
-      border-left: 4px solid $theme-color;
-    }
+  &:hover, &:focus {
+    background-color: $brand-primary;
   }
 }
 

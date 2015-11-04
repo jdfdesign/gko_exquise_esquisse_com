@@ -55,7 +55,7 @@
   display: none;
 }
 .carousel-control {
-  bottom: 20px;
+  bottom: 50%;
   color: $carousel-indicator-border-color;
   top: auto;
   font-size: 30px;
@@ -68,6 +68,10 @@
     right: 20px;
     background-image: none;
   }
+  
+  @media (min-width: $grid-float-breakpoint) {
+    bottom: 20px;
+  }
 }
 
 .no-touch {
@@ -77,13 +81,16 @@
 }
 
 .carousel-indicators {
-  bottom: 20px;
+  bottom: 14px;
+  width: 80%;
+  margin-left: -40%;
   li {
-    width:  22px;
-    height: 22px;
-    border-radius: 26px;
+    width:  12px;
+    height: 12px;
+    border-radius: 100%;
     margin: 1px;
-    border: 4px solid $carousel-indicator-border-color;
+    border: 3px solid $carousel-indicator-border-color;
+    display: none;
     // IE8-9 hack for event handling
     //
     // Internet Explorer 8-9 does not support clicks on elements without a set
@@ -96,10 +103,10 @@
     background-color: rgba(0,0,0,0); // IE9
 
     span {
-      width:  20px;
-      height: 20px;
+      width:  100%;
+      height: 100%;
       margin: 1px;
-      border-radius: 20px;
+      border-radius: 100%;
       background-color: $carousel-indicator-border-color;
       @include opacity(0);
     }
@@ -112,12 +119,16 @@
         @include opacity(1);
       }
     }
+    
+    @media (min-width: $grid-float-breakpoint) {
+      display: inline-block;
+    }
   }
 
   .active {
-    width:  22px;
-    height: 22px;
-    border-radius: 26px;
+    width:  12px;
+    height: 12px;
+    border-radius: 16px;
     margin: 1px;
     background-color: $theme-color;
     border-color: $theme-color;

@@ -78,10 +78,10 @@ jQuery(function($) {
 		$(".carousel-inner").swipe( {
 			//Generic swipe handler for all directions
 			swipeLeft:function(event, direction, distance, duration, fingerCount) {
-				$(this).parent().carousel('prev'); 
+				$(this).parent().carousel('next'); 
 			},
 			swipeRight: function() {
-				$(this).parent().carousel('next'); 
+				$(this).parent().carousel('prev'); 
 			},
 			//Default is 75px, set to 0 for demo so any distance triggers swipe
 			threshold:0
@@ -118,8 +118,19 @@ jQuery(function($) {
   ==================================================*/
 
   $(document).ready(function() {
-
+    
+    
     var $projects = $(".projects");
+    
+    $('.thumbnail-heading').each(function() {
+      var h = $(this).html();
+      var index = h.indexOf(' ');
+      if(index == -1) {
+        index = h.length;
+      }
+      $(this).html(h.substring(0, index) + '<br>' + h.substring(index, h.length));
+    });
+           
 
     $("a[data-remote]").on("ajax:beforeSend", function(evt, xhr, settings) {
       if ($(this).hasClass("active")) {
