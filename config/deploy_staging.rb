@@ -124,6 +124,35 @@ namespace :deploy do
       PassengerEnabled on
       PassengerAppRoot #{deploy_to}/current
       RailsEnv #{rails_env}
+
+      RewriteEngine On
+
+      #-Redirection www.domain.com => domain.com
+      RewriteCond %{HTTP_HOST} ^www.(.*)$ [NC]
+      RewriteRule ^(.*)$ http://%1/$1 [R=301,NC,L]
+
+      #-Rewrite home to check for static 
+      #RewriteRule ^$ home
+      #-Checks cache directory for already cached pages 
+      
+      #RewriteCond %{REQUEST_URI} /(../)?[/]*$
+      RewriteCond %{DOCUMENT_ROOT}/gko/cache/%{HTTP_HOST}%{REQUEST_URI}.html -f
+      RewriteRule ^(.*)$ /gko/cache/%{HTTP_HOST}%{REQUEST_URI}.html [L]
+
+      #-By default, Rails appends asset timestamps to all asset paths. This allows
+      #-you to set a cache-expiration date for the asset far into the future 
+      ExpiresActive on 
+      
+      ExpiresByType image/gif "access plus 1 year" 
+      ExpiresByType image/png "access plus 1 year" 
+      ExpiresByType image/jpeg "access plus 1 year" 
+      ExpiresByType image/x-icon "access plus 1 year" 
+      ExpiresByType text/css "access plus 1 year" 
+      ExpiresByType application/javascript "access plus 1 year"
+      
+      #-compress static text files 
+      AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript text/css application/javascript
+      
     EOF
     
     put htaccess, "#{current_release}/public/.htaccess"
