@@ -4,19 +4,3 @@
     <% raw parent.body %>
   <% end if parent.body.present? %>
 </div>
-<% if @document_items.any? %>
-<div class="document_items">
-  <div class="container">
-    <% @document_items.group_by(&:project).each do |project, group| %>
-      <div class="row">
-        <h3 class="col-sm-offset-2"><%= project.title %></h3>
-        <ul class="th-document_items">
-          <% group.each do |document_item| %>
-          <%= render document_item %>
-          <% end %>
-        </ul>
-      </div>
-    <% end %> 
-  </div>
-</div>
-<% end %>
