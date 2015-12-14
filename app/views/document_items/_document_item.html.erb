@@ -1,15 +1,7 @@
 <%# collection_row_cache(document_item) do %>
 	<li class="col-sm-8 col-sm-offset-2">
     <%= link_to(document_item.document.url, :class => "thumbnail-document", :target => :blank) do %>
-      <% if document_item.thumbnail.present? %>
-        <figure class="pull-left"><%= image_tag(document_item.thumbnail.url) %></figure>
-      <% else %>
-        <figure class="pull-left"><i class="fa fa-file-pdf-o fa-2x"></i></figure>
-      <% end %>
-      <strong><%= document_item.title %></strong>
-      <%= render_record_description(document_item) if parent.use_description %>
 
-      <span class="download"><small>Télécharger</small><span class="caret"></span></span>
     <% end %>
   </li>
 <%# end if document_item %>
