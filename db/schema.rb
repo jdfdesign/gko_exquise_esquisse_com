@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151007134952) do
+ActiveRecord::Schema.define(:version => 20151211133129) do
 
   create_table "assets", :force => true do |t|
     t.integer  "site_id"
@@ -144,8 +144,10 @@ ActiveRecord::Schema.define(:version => 20151007134952) do
     t.datetime "updated_at",                      :null => false
     t.string   "language",           :limit => 5
     t.string   "country"
+    t.integer  "project_id"
   end
 
+  add_index "document_items", ["project_id"], :name => "index_document_items_on_project_id"
   add_index "document_items", ["section_id"], :name => "index_press_articles_on_section_id"
   add_index "document_items", ["site_id"], :name => "index_press_articles_on_site_id"
 

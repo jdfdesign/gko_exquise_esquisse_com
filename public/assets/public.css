@@ -11695,35 +11695,33 @@ span.valid {
   float: none;
   position: relative;
   display: block;
-  margin-bottom: -1px;
+  margin-bottom: 8px;
 }
-/* line 26, ../../app/assets/stylesheets/theme/_press.scss */
+/* line 25, ../../app/assets/stylesheets/theme/_press.scss */
 .th-document_items > li a {
+  text-transform: uppercase;
   overflow: hidden;
   position: relative;
   display: block;
   padding: 20px 0;
+  background-color: #dadbd8;
   border-bottom: 1px solid #da5c53;
   line-height: 1.42857;
-  -webkit-transition: padding-left 0.25s ease;
-  -o-transition: padding-left 0.25s ease;
-  transition: padding-left 0.25s ease;
   -webkit-transition: background-color 0.45s ease;
   -o-transition: background-color 0.45s ease;
   transition: background-color 0.45s ease;
 }
 /* line 36, ../../app/assets/stylesheets/theme/_press.scss */
 .th-document_items > li a:hover, .th-document_items > li a:focus {
-  padding-left: 12px;
   text-decoration: none;
   color: #fff;
   background-color: #da5c53;
 }
-/* line 41, ../../app/assets/stylesheets/theme/_press.scss */
+/* line 40, ../../app/assets/stylesheets/theme/_press.scss */
 .th-document_items > li a:hover .download, .th-document_items > li a:focus .download {
   right: 0;
 }
-/* line 46, ../../app/assets/stylesheets/theme/_press.scss */
+/* line 45, ../../app/assets/stylesheets/theme/_press.scss */
 .th-document_items > li figure {
   color: #fff;
   float: left;

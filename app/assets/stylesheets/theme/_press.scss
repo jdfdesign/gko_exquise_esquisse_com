@@ -20,21 +20,20 @@
   	float: none;
     position: relative;
     display: block;
-    
     // Make the list-items overlay the bottom border
-    margin-bottom: -1px;
+    margin-bottom: 8px;
     a {
+      text-transform: uppercase;
       overflow: hidden;
       position: relative;
       display: block;
       padding: 20px 0;
+      background-color: $body-bg;
       border-bottom: 1px solid $brand-primary;
       line-height: $line-height-base;
-      @include transition(padding-left .25s ease);
       @include transition(background-color .45s ease);
       &:hover,
       &:focus {
-        padding-left: 12px;
         text-decoration: none;
         color: #fff;
         background-color: $brand-primary;
